@@ -14,11 +14,12 @@ int main()
 {
     cout << "main()" << endl;
 
-    pointer_data(3);
+
+    //pointer_data(3);
     //pointer_arithmetic_ints();
 
 
-    //pointer_fun(6,3);
+    pointer_fun(6,3);
     //greater_val(...)
     //pointer_arithmetic_chars();
 
@@ -28,8 +29,18 @@ int main()
  * Prints to terminal the values of the ints at the pointers. Then, prints to terminal the value of the ints at the pointer locations.*/
 void pointer_fun(int a, int b)
 {
-    //your code here
+    int* heapptr_a = new int(a);
+    int* heapptr_b = new int(b);
+    int** heapptr_c = new int*(heapptr_a);
 
+    cout << "memory addresses (first three are the same, since they point to a):\n";
+    cout << heapptr_a << ' ' << &(*(heapptr_a)) << ' ' << &(*(*(&heapptr_a))) << ' ' << heapptr_b << ' ' << heapptr_c << "\n";
+
+    cout << "dereferenced once:\n";
+    cout << *(heapptr_a) << ' ' << *(heapptr_b) << ' ' << *(heapptr_c) << "\n";
+
+    cout << "dereferenced twice:\n";
+    cout << "NOT_ALLOWED" << ' ' << "NOT_ALLOWED" << ' ' << **(heapptr_c) << "\n";
 
     //follow-up question; how far away, in bytes, is location of ptrA versus location of ptrB? How many bytes is an int stored in?
     //cout << "\n Int size (bytes): "<< sizeof(a) << endl;
@@ -55,12 +66,12 @@ void pointer_arithmetic_chars()
     }
 }
 
-short greater_val(short * ptrA, short * ptrB)
+short greater_val(short* ptrA, short* ptrB)
 {
-    //your code here
-
-
-    return 0; // <--- change this
+    if (*(ptrA) < *(ptrB))
+        return *(ptrB);
+    else
+        return *(ptrA);
 }
 
 /* prints out pointer location in hex, decimal, and binary */
