@@ -1,36 +1,26 @@
-# EECS 230 Lab 7
+# EECS 230 Lab 8
 
-In this lab, you will review and work on solidifying your intuition with pointers.
+In this lab, you will review and work on solidifying your intuition with data structures and using shared_pointers
 
-1. Review Memory, Free Store, References, and Pointers
-2. What are the differences between pointers and references?
+Work with a partner, and discuss and pair-program the following exercises.
 
 ## Exercises
 
-1. Write a function `void pointer_fun(int a, int b)`, that creates two integer pointers named ptrA and ptrB that point to ints a and b, respectively. Print to terminal the values of the ints at the pointers. Then, print to terminal the pointer locations. How far away, in bytes, is location of ptrA versus location of ptrB?
+1. Consider a binary tree where each node contains an int, and a shared_ptr to its left and right child. Draw on paper the following binary tree:
+      Level 0: 6
+      Level 1: 3 | 10
+      Level 2: 1,5 | 9,56
 
-2. Write a function `short greater_val(short * ptrA, short * ptrB)` that takes two pointers to shorts, and returns the value of whichever short is greater.
+2. Add elements 102, 2, 7, and 103 to the binary tree. Describe to your partner the algorithm for inserting an element into a binary tree.
 
-3. Write a function `void pointer_arithmetic_chars()` that takes an array of characters (`char[]`)  and iterates over the characters via a pointer to print the sentence.
+3. Search for values 5, 7, and 58. Describe to your partner the algorithm for searching for an element in a binary tree.
 
-4. Purposely put a bug somewhere in the functions above, and use the debugger and well-placed breakpoints to find the bug.
+4. Write a function `void pointer_fun(int a, int b)`, that creates two integer shared_pointers named ptrA and ptrB that point to ints a and b, respectively. Print to terminal the values of the ints at the pointers.
 
-5. Allocate a new int with space from the heap store, in a helper function; use `int * ip = new int(4)`. Print out that pointer's value in `main()`.
+5. Write a function `short greater_val(shared_ptr<short> A, shared_ptr<short> B)` that takes two shared_pointers to shorts, and returns the value of whichever short is greater.
 
-6. Work through creating a vector of all the students in your section.
+6. What is the benefit of shared_pointers, versus using New and Delete to allocate memory?
 
- Use the following class definition:
-```
-class Student
-{
-    public:
-        Student();
-        Student(string f_name, string l_name, int g_year);
-        
-    private:
-        string first_name_;
-        string last_name_;
-        int grad_year_;
-}
-```
-Create and test the following functions: `void add_student()` and `void remove_student()`.
+7. What are the properties of a Set, and what methods does a Set container support?
+
+8**. In the movie the Martian, Matt Damon is stranded on Mars. He has a video feed with NASA, where NASA can rotate a camera 360 degrees. He can communicate with NASA by writing, and showing what he wrote to the camera. Having NASA communicate with him using the camera is more difficult. He considers using the alphabet, and putting each of 26 letters spread out over 360 degrees, but determines that the 14 degrees of separation (360/26) between each letter would be insufficient. How should/how does Matt Damon have NASA communicate with him?
